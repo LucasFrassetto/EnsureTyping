@@ -16,12 +16,15 @@ def ensure_typing(var, var_name: str, types: Union[List[type], type], optional: 
 
     Raises:
         ValueError: raises an exception if the variable is not optional and is empty.
+        TypeError: raises an exception if the type is invalid.
         TypeError: raises an exception if the value type is different from the correct type
     """
     if not isinstance(types, list):
         types = [types]
 
     for type_ in types:
+        if type(type_) != type:
+            raise TypeError(f"Please enter a valid type to {types}. {var_name}{types}: {var}{type(var)}")
         if type_ == types[-1] and not isinstance(var, type_):
             if not optional and type_ != type(None) and not var:
                 raise ValueError(f"This parameter is mandatory, please enter a valid value. - {var_name}{types}: {var}{type(var)}")
