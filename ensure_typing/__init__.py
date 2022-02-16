@@ -1,2 +1,1 @@
-from .ensure_typing import EnsureTyping
-from .ensure import ensure_typing
+from .ensure_typing import EnsureTyping, ensure_typing
