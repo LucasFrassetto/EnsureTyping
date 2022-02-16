@@ -6,30 +6,24 @@ __all__ = ("ensure_typing")
 
 
 def ensure_typing(var, var_name: str, types: Union[List[type], type], optional: bool=False):
-    """_summary_
+    """this function aims to ensure that the provided value matches valid types.
 
     Args:
-        var (_type_): _description_
-        var_name (str): _description_
-        types (Union[List[type], type]): _description_
-        optional (bool, optional): _description_. Defaults to False.
+        var (Any): variable whose typo will be checked.
+        var_name (str): variable name for reference.
+        types (Union[List[type], type]): a type or a list of types that "var" can be.
+        optional (bool, optional): if this variable is optional.. Defaults to False.
 
     Raises:
-        ValueError: _description_
-        TypeError: _description_
-
-    Returns:
-        _type_: _description_
+        ValueError: raises an exception if the variable is not optional and is empty.
+        TypeError: raises an exception if the value type is different from the correct type
     """
     if not isinstance(types, list):
         types = [types]
-    if optional and var == None:
-        return True
-
-    if not optional and var == None:
-        raise ValueError(f"This parameter is mandatory, please enter a valid value. - {var_name}:[{types}]{var}")
 
     for type_ in types:
         if type_ == types[-1] and not isinstance(var, type_):
+            if not optional and type_ != type(None) and not var:
+                raise ValueError(f"This parameter is mandatory, please enter a valid value. - {var_name}{types}: {var}{type(var)}")
             raise TypeError(f"Please enter a valid value to {var_name}. {var_name}{types}: {var}{type(var)}")
         break

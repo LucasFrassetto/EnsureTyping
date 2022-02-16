@@ -14,9 +14,9 @@ class EnsureTyping:
     """This Decorator's function is to Force the Typing Check of a class or Function. raising exceptions if it is an invalid type or an invalid type value.
 
     Args:
-        recursive_objects (bool): #? goes through all classes, subclasses, functions and subfunctions collecting all parameters and checking if the typing is correct. Defaults to False.
-        recursive_variables (bool): #? goes through all classes, subclasses, functions and subfunctions collecting all variables and checking if the typing is correct. Defaults to False.
-        ignore_exception (bool): #? Ignores exceptions and only raises a warning if the typing is incorrect.. Defaults to False.
+        recursive_objects (bool, optional): # Goes through all classes, subclasses, functions and subfunctions collecting all parameters and checking if the typing is correct. Defaults to False.
+        recursive_variables (bool, optional): # Goes through all classes, subclasses, functions and subfunctions collecting all variables and checking if the typing is correct. Defaults to False.
+        ignore_exception (bool, optional): # Ignores exceptions and only raises a warning if the typing is incorrect.. Defaults to False.
 
     """
     # TODO Check object is class or function
