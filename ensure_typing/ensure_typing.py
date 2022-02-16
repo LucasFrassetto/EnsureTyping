@@ -44,9 +44,6 @@ def ensure_typing(var, var_name: str, types: Union[List[type], type], optional: 
     if not types_:
         types_ = (_empty,)
 
-    print("#"*30)
-    print(type(types))
-    print(types_)
     # check invalid types
     for type_ in types_:
         if type(type_) != type:
