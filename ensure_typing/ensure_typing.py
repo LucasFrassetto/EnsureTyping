@@ -100,7 +100,7 @@ class EnsureTyping:
                     func_params[kw]['value'] = value
 
             for param, item in func_params.items():
-                ensure_typing(item['value'], param, item['type'], item['optional'])
+                ensure_typing(item['value'], param, item['type'], item['optional'], self.ignore_exception)
 
             return obj(*args, **kwargs)
         return inner
